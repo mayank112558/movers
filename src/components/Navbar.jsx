@@ -19,7 +19,7 @@ function Navbar() {
             {/* Glowing aura */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 via-pink-500 to-orange-400 opacity-60 blur-lg group-hover:opacity-80 transition" />
             <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-indigo-600 to-pink-500 flex items-center justify-center text-white font-extrabold text-lg shadow-lg">
-              
+              {/* Logo content if needed */}
             </div>
           </div>
           <span className="text-2xl font-extrabold bg-gradient-to-r from-indigo-600 via-pink-500 to-orange-400 bg-clip-text text-transparent group-hover:tracking-wide transition">
@@ -28,8 +28,8 @@ function Navbar() {
         </motion.div>
 
         {/* Contact Button */}
-        <motion.a
-          href="/contact"
+        <motion.button
+          onClick={() => navigate("/contact")}
           whileHover={{ scale: 1.1, rotate: 1 }}
           whileTap={{ scale: 0.95 }}
           className="relative px-6 py-2 font-semibold text-white rounded-full overflow-hidden"
@@ -40,7 +40,7 @@ function Navbar() {
           <span className="relative block rounded-full bg-black/30 backdrop-blur-md px-6 py-2">
             Contact
           </span>
-        </motion.a>
+        </motion.button>
       </nav>
     </header>
   );
