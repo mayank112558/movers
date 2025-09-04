@@ -36,7 +36,7 @@ function HomePage() {
     {/* Services Section */}
 <div
   ref={servicesRef}
-  className="relative pt-20 sm:pt-28 md:pt-60" // responsive top padding
+  className="relative pt-20 sm:pt-28 md:pt-100" // responsive top padding
 >
   <Services />
   <ScrollIndicator
