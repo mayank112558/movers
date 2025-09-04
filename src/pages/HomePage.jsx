@@ -33,16 +33,20 @@ function HomePage() {
         />
       </div>
 
-      {/* Services Section */}
-      <div ref={servicesRef} className="relative">
-        <Services />
-        <ScrollIndicator
-          label="Next"
-          onClick={() =>
-            testimonialsRef.current.scrollIntoView({ behavior: "smooth" })
-          }
-        />
-      </div>
+    {/* Services Section */}
+<div
+  ref={servicesRef}
+  className="relative pt-20 sm:pt-28 md:pt-36" // responsive top padding
+>
+  <Services />
+  <ScrollIndicator
+    label="Next"
+    onClick={() =>
+      testimonialsRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+  />
+</div>
+
 
       {/* Testimonials Section */}
       <div ref={testimonialsRef} className="relative">
