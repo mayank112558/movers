@@ -159,7 +159,7 @@ function QuoteForm() {
               onClick={handleDistanceCalc}
               className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-500 text-white rounded-2xl shadow hover:scale-105 transition"
             >
-              🚚 Calculate Distance
+              Calculate Distance
             </button>
 
             {formData.distance > 0 && (
