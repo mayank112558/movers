@@ -60,11 +60,11 @@ function QuoteForm() {
   const steps = ["Journey", "Property", "Furniture", "Your Details"];
 
   return (
-    <div className="max-w-3xl mx-auto my-12 p-8 rounded-3xl bg-white/70 backdrop-blur-md shadow-2xl border border-indigo-200">
+    <div className="max-w-3xl mx-auto my-8 p-6 sm:p-8 md:p-10 rounded-3xl bg-white/70 backdrop-blur-md shadow-2xl border border-indigo-200">
       {/* Progress Tracker */}
-      <div className="flex items-center justify-between mb-8 relative">
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-6 sm:mb-8 relative">
         {steps.map((label, i) => (
-          <div key={i} className="flex-1 flex items-center">
+          <div key={i} className="flex-1 flex items-center mb-2 sm:mb-0">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold z-10 transition
               ${step === i + 1 ? "bg-indigo-600 text-white" : step > i + 1 ? "bg-green-500 text-white" : "bg-gray-300 text-gray-700"}`}
@@ -81,7 +81,7 @@ function QuoteForm() {
         ))}
       </div>
 
-      <h2 className="text-3xl font-extrabold text-center mb-6 text-gray-800">
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-6 text-gray-800">
         Get a Moving Quote
       </h2>
 
@@ -174,32 +174,40 @@ function QuoteForm() {
               </select>
             </div>
 
-            {["helpers", "date", "time", "stairs"].map((field, idx) => (
-              <div key={idx}>
-                <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
-                  {field}
-                </label>
-                <input
-                  type={field === "date" ? "date" : field === "time" ? "time" : "number"}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  className="w-full p-3 border-2 border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
-                  placeholder={field === "helpers" ? "e.g. 2" : ""}
-                />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {["helpers", "date", "time", "stairs"].map((field, idx) => (
+                <div key={idx}>
+                  <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+                    {field}
+                  </label>
+                  <input
+                    type={
+                      field === "date"
+                        ? "date"
+                        : field === "time"
+                        ? "time"
+                        : "number"
+                    }
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    className="w-full p-3 border-2 border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                    placeholder={field === "helpers" ? "e.g. 2" : ""}
+                  />
+                </div>
+              ))}
+            </div>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between gap-4">
               <button
                 onClick={() => setStep(1)}
-                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition"
+                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition w-full sm:w-auto"
               >
                 ← Back
               </button>
               <button
                 onClick={() => setStep(3)}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-xl shadow hover:scale-105 transition"
+                className="px-6 py-2 bg-indigo-600 text-white rounded-xl shadow hover:scale-105 transition w-full sm:w-auto"
               >
                 Next →
               </button>
@@ -222,7 +230,10 @@ function QuoteForm() {
             </h3>
 
             {formData.furniture.map((f, index) => (
-              <div key={index} className="flex gap-3">
+              <div
+                key={index}
+                className="flex flex-col sm:flex-row gap-3 items-start sm:items-end"
+              >
                 <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Item Name
@@ -237,7 +248,7 @@ function QuoteForm() {
                     placeholder="Furniture / Appliance"
                   />
                 </div>
-                <div>
+                <div className="w-full sm:w-24">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Qty
                   </label>
@@ -247,7 +258,7 @@ function QuoteForm() {
                     onChange={(e) =>
                       handleFurnitureChange(index, "number", e.target.value)
                     }
-                    className="w-24 p-3 border-2 border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+                    className="w-full p-3 border-2 border-gray-200 rounded-xl text-black focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
                     placeholder="Qty"
                   />
                 </div>
@@ -261,16 +272,16 @@ function QuoteForm() {
               + Add More
             </button>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between gap-4">
               <button
                 onClick={() => setStep(2)}
-                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition"
+                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition w-full sm:w-auto"
               >
                 ← Back
               </button>
               <button
                 onClick={() => setStep(4)}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-xl shadow hover:scale-105 transition"
+                className="px-6 py-2 bg-indigo-600 text-white rounded-xl shadow hover:scale-105 transition w-full sm:w-auto"
               >
                 Next →
               </button>
@@ -325,16 +336,16 @@ function QuoteForm() {
               </p>
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col sm:flex-row justify-between gap-4">
               <button
                 onClick={() => setStep(3)}
-                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition"
+                className="px-6 py-2 bg-gray-300 text-gray-800 rounded-xl hover:bg-gray-400 transition w-full sm:w-auto"
               >
                 ← Back
               </button>
               <button
                 onClick={() => alert("Quote submitted!")}
-                className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow hover:scale-105 transition"
+                className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl shadow hover:scale-105 transition w-full sm:w-auto"
               >
                 Submit ✔
               </button>
