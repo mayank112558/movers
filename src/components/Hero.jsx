@@ -176,7 +176,7 @@ export default function Hero() {
     {
       titles: ["We Pack with Care", "Handled with Love", "Safe & Sound"],
       desc: "Your memories are wrapped, sealed, and protected by experts.",
-      bg: videoOne,
+      bg: videoFour,
     },
     {
       titles: ["We Move with Precision", "Across Borders", "On Every Mile"],
